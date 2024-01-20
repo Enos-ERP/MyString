@@ -1,9 +1,9 @@
 {
 	"name": "mystring",
-	"description": "Biblioteca para trabalhar com Strings.",
+	"description": "MyString Library for working with String.",
 	"version": "1.0.0",
 	"homepage": "",
-	"mainsrc": "/src",
+	"mainsrc": "src",
 	"projects": [],
 	"dependencies": {}
 }
