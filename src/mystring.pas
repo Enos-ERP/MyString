@@ -84,15 +84,12 @@ end;
 
 class function TMyString.OnlyNumber(AString: String): String;
 var
-  LS1, LS2: String;
   LIndex: Integer;
 begin
-  LS1 := AString;
-  LS2 := '';
-  for LIndex := 1 to Length(LS1) do
-    if LS1[LIndex] in ['0'..'9'] then
-      LS2 := LS2 + LS1[LIndex];
-  Result := LS2;
+  Result := '';
+  for LIndex := 0 to Length(AString) - 1 do
+    if (AString.Chars[LIndex] In ['0'..'9']) then
+      Result := Result + AString.Chars[LIndex];
 end;
 
 class function TMyString.SeparateText(AString: String; ASeparator: Char): TStringList;
