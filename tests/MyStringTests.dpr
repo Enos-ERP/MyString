@@ -17,7 +17,7 @@ program MyStringTests;
 uses
   DUnitTestRunner,
   test.mystring in 'test.mystring.pas',
-  mystring in '..\scr\mystring.pas';
+  mystring in '..\src\mystring.pas';
 
 {$R *.RES}
 

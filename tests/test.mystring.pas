@@ -20,6 +20,7 @@ type
     procedure TestMyTryStrToInt;
     procedure TestZeroMyTryStrToInt;
     procedure TestRemoveCharSpecial;
+    procedure TestCharIsNum;
   end;
 
 implementation
@@ -85,7 +86,7 @@ end;
 procedure TestTMyString.TestEmptyWordCount;
 var
   ReturnValue: Integer;
-  AString: string;
+  AString: String;
 begin
   AString := '';
   ReturnValue := TMyString.WordCount(AString);
@@ -95,8 +96,8 @@ end;
 procedure TestTMyString.TestCountPos;
 var
   ReturnValue: Integer;
-  AString: string;
-  ASubString: string;
+  AString: String;
+  ASubString: String;
 begin
   ASubString := 'leo';
   AString := 'Lorem ipsum proin phasellus non mollis eleifend himenaeos leo, ' +
@@ -109,7 +110,7 @@ end;
 procedure TestTMyString.TestMyTryStrToInt;
 var
   ReturnValue: Integer;
-  AString: string;
+  AString: String;
 begin
   AString := '12';
   ReturnValue := TMyString.MyTryStrToInt(AString);
@@ -119,7 +120,7 @@ end;
 procedure TestTMyString.TestZeroMyTryStrToInt;
 var
   ReturnValue: Integer;
-  AString: string;
+  AString: String;
 begin
   AString := '12.5';
   ReturnValue := TMyString.MyTryStrToInt(AString);
@@ -128,15 +129,26 @@ end;
 
 procedure TestTMyString.TestRemoveCharSpecial;
 var
-  ReturnValue: string;
-  AString: string;
+  ReturnValue: String;
+  AString: String;
 begin
   AString := 'A*1#3!B';
   ReturnValue := TMyString.RemoveCharSpecial(AString);
   CheckEquals('A13B', ReturnValue, 'TestRemoveCharSpecial failed.');
 end;
 
+procedure TestTMyString.TestCharIsNum;
+var
+  ReturnValue: Boolean;
+  AChar: Char;
+begin
+  AChar := '1';
+  ReturnValue := TMyString.CharIsNum(AChar);
+  CheckEquals(True, ReturnValue, 'TestCharIsNum failed.');
+end;
+
 initialization
   RegisterTest(TestTMyString.Suite);
+
 end.
 
