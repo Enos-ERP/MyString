@@ -60,6 +60,13 @@ type
 ///<returns>Retorna uma String que contém somente numeros e letras.</returns>
 ///<remarks>Entrada: 'A*1#3!B' Saída: 'A13B'.</remarks>
     class function RemoveCharSpecial(AString: String): String;
+
+///<summary>Retorna se o caractere informado é um número.</summary>
+///<param name="AChar">Caractere a ser verificado.</param>
+///<returns>Retorna se o caractere informado é uma número ente 0 e 9.</returns>
+///<remarks>Entrada: '1' Saída: 'True'.</remarks>
+///<remarks>Entrada: 'A' Saída: 'False'.</remarks>
+    class function CharIsNum(AChar: Char): Boolean;
   end;
 
 implementation
@@ -154,6 +161,11 @@ begin
        (CharInSet(LString1[LIndex], ['A'..'Z'])) then
       LString2 := LString2 + LString1[LIndex];
   Result := LString2;
+end;
+
+class function TMyString.CharIsNum(AChar: Char): Boolean;
+begin
+  Result := CharInSet(AChar, ['0'..'9'] );
 end;
 
 end.

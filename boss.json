@@ -1,7 +1,7 @@
 {
 	"name": "mystring",
 	"description": "MyString Library for working with String.",
-	"version": "1.0.3",
+	"version": "1.2.0",
 	"homepage": "",
 	"mainsrc": "/src",
 	"projects": [],
