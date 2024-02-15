@@ -43,7 +43,7 @@ begin
   ACharacters := '!@#$%&*()';
   AString := '(My !@# clean $%&* string.)';
   ReturnValue := TMyString.RemoveCharacters(ACharacters, AString);
-  CheckEquals('My  clean  string.', ReturnValue, 'RemoveCharacters failed.');
+  CheckEquals('My  clean  string.', ReturnValue, 'TestRemoveCharacters failed.');
 end;
 
 procedure TestTMyString.TestOnlyNumber;
@@ -53,7 +53,7 @@ var
 begin
   AString := 'A1b2C3d4E5f6G7H8I9';
   ReturnValue := TMyString.OnlyNumber(AString);
-  CheckEquals('123456789', ReturnValue, 'OnlyNumber failed.');
+  CheckEquals('123456789', ReturnValue, 'TestOnlyNumber failed.');
 end;
 
 procedure TestTMyString.TestSeparateText;
@@ -67,7 +67,7 @@ begin
   ASeparator := ',';
   ReturnValue := TMyString.SeparateText(AString, ASeparator);
   for Item in ReturnValue do
-    CheckEquals('Value', Item, 'SeparateText failed.');
+    CheckEquals('Value', Item, 'TestSeparateText failed.');
 end;
 
 procedure TestTMyString.TestWordCount;
@@ -79,7 +79,7 @@ begin
             'mattis vivamus sit dictum leo sociosqu ad mattis eget, hac sed ' +
             'sagittis fringilla adipiscing conubia hac.';
   ReturnValue := TMyString.WordCount(AString);
-  CheckEquals(25, ReturnValue, 'WordCount failed.');
+  CheckEquals(25, ReturnValue, 'TestWordCount failed.');
 end;
 
 procedure TestTMyString.TestEmptyWordCount;
@@ -89,7 +89,7 @@ var
 begin
   AString := '';
   ReturnValue := TMyString.WordCount(AString);
-  CheckEquals(0, ReturnValue, 'WordCount failed. Not returned 0.');
+  CheckEquals(0, ReturnValue, 'TestEmptyWordCount failed. Not returned 0.');
 end;
 
 procedure TestTMyString.TestCountPos;
@@ -103,7 +103,7 @@ begin
                 'mattis vivamus sit dictum leo sociosqu ad mattis eget, hac sed ' +
                 'sagittis fringilla adipiscing conubia hac.';
   ReturnValue := TMyString.CountPos(ASubString, AString);
-  CheckEquals(2, ReturnValue, 'CountPos failed.');
+  CheckEquals(2, ReturnValue, 'TestCountPos failed.');
 end;
 
 procedure TestTMyString.TestMyTryStrToInt;
@@ -113,7 +113,7 @@ var
 begin
   AString := '12';
   ReturnValue := TMyString.MyTryStrToInt(AString);
-  CheckEquals(12, ReturnValue, 'MyTryStrToInt failed.');
+  CheckEquals(12, ReturnValue, 'TestMyTryStrToInt failed.');
 end;
 
 procedure TestTMyString.TestZeroMyTryStrToInt;
@@ -123,7 +123,7 @@ var
 begin
   AString := '12.5';
   ReturnValue := TMyString.MyTryStrToInt(AString);
-  CheckEquals(0, ReturnValue, 'MyTryStrToInt failed. Not returned 0.');
+  CheckEquals(0, ReturnValue, 'TestZeroMyTryStrToInt failed. Not returned 0.');
 end;
 
 procedure TestTMyString.TestRemoveCharSpecial;
@@ -133,7 +133,7 @@ var
 begin
   AString := 'A*1#3!B';
   ReturnValue := TMyString.RemoveCharSpecial(AString);
-  CheckEquals('A13B', ReturnValue, 'RemoveCharSpecial failed.');
+  CheckEquals('A13B', ReturnValue, 'TestRemoveCharSpecial failed.');
 end;
 
 initialization

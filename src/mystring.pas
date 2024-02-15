@@ -88,7 +88,7 @@ var
 begin
   Result := '';
   for LIndex := 0 to Length(AString) - 1 do
-    if (AString.Chars[LIndex] In ['0'..'9']) then
+    if (CharInSet(AString.Chars[LIndex], ['0'..'9'])) then
       Result := Result + AString.Chars[LIndex];
 end;
 
@@ -149,7 +149,9 @@ begin
   LString1 := AString;
   LString2 := '';
   for LIndex := 1 to Length(LString1) do
-    if (LString1[LIndex] in ['0'..'9']) or (LString1[LIndex] in ['a'..'z']) or (LString1[LIndex] in ['A'..'Z']) then
+    if (CharInSet(LString1[LIndex], ['0'..'9'])) or
+       (CharInSet(LString1[LIndex], ['a'..'z'])) or
+       (CharInSet(LString1[LIndex], ['A'..'Z'])) then
       LString2 := LString2 + LString1[LIndex];
   Result := LString2;
 end;
