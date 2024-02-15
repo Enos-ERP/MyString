@@ -35,12 +35,6 @@ type
 ///<exception cref="Exception">Em caso de exceção retorna nil.</exception>
     class function SeparateText(AString: String; ASeparator: Char): TStringList;
 
-///<summary>Retira a máscara de uma String.</summary>
-///<param name="AString">String que será tratada.</param>
-///<returns>Retorna uma String sem máscara.</returns>
-///<remarks>Entrada: '(99)99999-9999' Saída: '99999999999'.</remarks>
-    class function RemoveMask(AString: String): String;
-
 ///<summary>Conta quantas palavras contém em uma String.</summary>
 ///<param name="AString">String para contar as palavras.</param>
 ///<returns>Retorna quantas palavras foram encontradas na String.</returns>
@@ -108,19 +102,6 @@ begin
   Result.StrictDelimiter := True;
   Result.Delimiter := ASeparator;
   Result.DelimitedText := AString;
-end;
-
-class function TMyString.RemoveMask(AString: String): String;
-begin
-  Result := AString;
-  Result := StringReplace(Result,'*','',[rfReplaceAll]);
-  Result := StringReplace(Result,'.','',[rfReplaceAll]);
-  Result := StringReplace(Result,'-','',[rfReplaceAll]);
-  Result := StringReplace(Result,'/','',[rfReplaceAll]);
-  Result := StringReplace(Result,'\','',[rfReplaceAll]);
-  Result := StringReplace(Result,'(','',[rfReplaceAll]);
-  Result := StringReplace(Result,')','',[rfReplaceAll]);
-  Result := StringReplace(Result,' ','',[rfReplaceAll]);
 end;
 
 class function TMyString.WordCount(AString: String): Integer;
